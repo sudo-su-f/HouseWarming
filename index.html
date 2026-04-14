@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Griha Pravesh Invitation 🪔</title>
+  <style>
+    /* ── Google Fonts ── */
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&family=Marck+Script&display=swap');
+
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:   #c9901d;
+      --gold2:  #f5c842;
+      --saffron:#e8520a;
+      --red:    #b5001e;
+      --cream:  #fdf6e3;
+      --dark:   #2e1a0e;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    /* ── Decorative top / bottom border ── */
+    .border-strip {
+      width: 100%;
+      height: 12px;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--saffron) 0px, var(--saffron) 20px,
+        var(--gold2)   20px, var(--gold2)   40px,
+        var(--red)     40px, var(--red)     60px
+      );
+    }
+
+    /* ── Hero / Header ── */
+    .hero {
+      position: relative;
+      text-align: center;
+      padding: 60px 20px 40px;
+      background:
+        radial-gradient(ellipse at top, #fff8ee 0%, #fde8ba 60%, #f5c842 100%);
+      overflow: hidden;
+    }
+
+    /* Rangoli-style SVG circles in hero */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(201,144,29,.15) 0 80px, transparent 80px),
+        radial-gradient(circle at 90% 15%, rgba(229,82,10,.12) 0 60px, transparent 60px),
+        radial-gradient(circle at 50% 95%, rgba(181,0,30,.10) 0 100px, transparent 100px);
+      pointer-events: none;
+    }
+
+    .diya-row {
+      font-size: 2.4rem;
+      letter-spacing: .5rem;
+      margin-bottom: 18px;
+      animation: flicker 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes flicker {
+      0%   { opacity: 1; }
+      50%  { opacity: .85; }
+      100% { opacity: 1; }
+    }
+
+    .hero-label {
+      font-family: 'Lato', sans-serif;
+      font-size: .85rem;
+      font-weight: 700;
+      letter-spacing: .35em;
+      text-transform: uppercase;
+      color: var(--saffron);
+      margin-bottom: 10px;
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      font-weight: 700;
+      color: var(--red);
+      line-height: 1.15;
+      text-shadow: 1px 2px 6px rgba(0,0,0,.12);
+    }
+
+    .hero-subtitle {
+      font-family: 'Marck Script', cursive;
+      font-size: clamp(1.2rem, 3.5vw, 1.9rem);
+      color: var(--gold);
+      margin-top: 8px;
+    }
+
+    .hero-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin: 22px auto;
+      max-width: 420px;
+    }
+    .hero-divider span { font-size: 1.5rem; }
+    .hero-divider .line {
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    /* ── Invitation Text ── */
+    .invitation-text {
+      max-width: 680px;
+      margin: 0 auto 30px;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #4a2c10;
+      padding: 0 16px;
+    }
+
+    .invitation-text .namaste { font-size: 2rem; display: block; margin-bottom: 8px; }
+
+    /* ── Info Cards ── */
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      padding: 40px 20px;
+      background: linear-gradient(180deg, #fde8ba 0%, var(--cream) 100%);
+    }
+
+    .card {
+      background: #fff;
+      border: 2px solid var(--gold2);
+      border-radius: 16px;
+      padding: 28px 32px;
+      min-width: 220px;
+      max-width: 280px;
+      flex: 1 1 200px;
+      text-align: center;
+      box-shadow: 0 6px 24px rgba(197,144,29,.18);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 32px rgba(197,144,29,.28);
+    }
+
+    .card-icon { font-size: 2.4rem; margin-bottom: 10px; }
+
+    .card-title {
+      font-family: 'Cinzel', serif;
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--saffron);
+      margin-bottom: 8px;
+    }
+
+    .card-value {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.4;
+    }
+
+    .card-sub {
+      font-size: .85rem;
+      color: #7a5030;
+      margin-top: 4px;
+    }
+
+    /* ── Countdown ── */
+    .countdown-section {
+      text-align: center;
+      padding: 48px 20px;
+      background: linear-gradient(135deg, var(--red) 0%, #8c001a 100%);
+      color: #fff;
+    }
+
+    .countdown-section h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.3rem;
+      letter-spacing: .15em;
+      margin-bottom: 28px;
+      opacity: .9;
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .cd-box {
+      background: rgba(255,255,255,.12);
+      border: 2px solid rgba(255,255,255,.3);
+      border-radius: 12px;
+      padding: 18px 22px;
+      min-width: 80px;
+      backdrop-filter: blur(4px);
+    }
+
+    .cd-num {
+      font-family: 'Cinzel', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .cd-label {
+      font-size: .7rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      opacity: .8;
+      margin-top: 6px;
+    }
+
+    .cd-done {
+      font-family: 'Cinzel', serif;
+      font-size: 1.6rem;
+      letter-spacing: .1em;
+    }
+
+    /* ── Map / Location CTA ── */
+    .location-section {
+      text-align: center;
+      padding: 50px 20px;
+      background: var(--cream);
+    }
+
+    .location-section h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.6rem;
+      color: var(--red);
+      margin-bottom: 12px;
+    }
+
+    .location-section p {
+      color: #6a4020;
+      font-size: .95rem;
+      margin-bottom: 28px;
+    }
+
+    .map-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--saffron), var(--gold));
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      padding: 14px 32px;
+      border-radius: 50px;
+      box-shadow: 0 6px 20px rgba(232,82,10,.35);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .map-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px rgba(232,82,10,.45);
+    }
+    .map-btn span { font-size: 1.4rem; }
+
+    /* ── Decorative rangoli strip ── */
+    .rangoli-strip {
+      text-align: center;
+      font-size: 1.8rem;
+      letter-spacing: .6rem;
+      padding: 18px 0;
+      background: linear-gradient(90deg, #fde8ba, #f5c842, #fde8ba);
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--dark);
+      color: #e8c97a;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    footer .namaste-footer { font-size: 1.8rem; margin-bottom: 8px; }
+
+    footer p {
+      font-size: .85rem;
+      opacity: .75;
+      line-height: 1.7;
+    }
+
+    footer .blessings {
+      font-family: 'Marck Script', cursive;
+      font-size: 1.15rem;
+      opacity: 1;
+      color: var(--gold2);
+      margin-top: 8px;
+    }
+
+    /* ── Responsive tweaks ── */
+    @media (max-width: 480px) {
+      .cd-num { font-size: 1.8rem; }
+      .card { padding: 22px 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top border -->
+  <div class="border-strip"></div>
+
+  <!-- ══ HERO ══ -->
+  <header class="hero">
+    <p class="diya-row">🪔 🌸 🪔 🌸 🪔</p>
+    <p class="hero-label">You are cordially invited to our</p>
+    <h1 class="hero-title">Griha Pravesh<br>Ceremony</h1>
+    <p class="hero-subtitle">Housewarming &amp; Blessings</p>
+
+    <div class="hero-divider">
+      <div class="line"></div>
+      <span>🌺</span>
+      <div class="line"></div>
+    </div>
+
+    <p class="invitation-text">
+      <span class="namaste">🙏</span>
+      With the blessings of the Almighty, we are delighted to invite you to
+      grace our new home with your presence and auspicious blessings as we
+      celebrate our <strong>Griha Pravesh</strong>. Your love and wishes mean
+      the world to us — please do join us to make this moment truly special!
+    </p>
+  </header>
+
+  <!-- ══ EVENT DETAILS CARDS ══ -->
+  <section class="cards" aria-label="Event Details">
+
+    <div class="card">
+      <div class="card-icon">📅</div>
+      <p class="card-title">Date</p>
+      <p class="card-value">27 April 2026</p>
+      <p class="card-sub">Monday</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🕐</div>
+      <p class="card-title">Timing</p>
+      <p class="card-value">11:00 AM – 2:30 PM</p>
+      <p class="card-sub">Lunch &amp; Puja included</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">📍</div>
+      <p class="card-title">Venue</p>
+      <p class="card-value">Our New Home</p>
+      <p class="card-sub">
+        <a href="https://share.google/8nMZSM9a0PaP1nCPh" target="_blank" rel="noopener"
+           style="color:var(--saffron);font-weight:700;text-decoration:none;">
+          View on Maps ↗
+        </a>
+      </p>
+    </div>
+
+  </section>
+
+  <!-- ══ COUNTDOWN ══ -->
+  <section class="countdown-section" aria-label="Countdown Timer">
+    <h2>🕰 Counting Down to the Celebration</h2>
+    <div class="countdown" id="countdown">
+      <div class="cd-box"><div class="cd-num" id="cd-days">--</div><div class="cd-label">Days</div></div>
+      <div class="cd-box"><div class="cd-num" id="cd-hours">--</div><div class="cd-label">Hours</div></div>
+      <div class="cd-box"><div class="cd-num" id="cd-mins">--</div><div class="cd-label">Minutes</div></div>
+      <div class="cd-box"><div class="cd-num" id="cd-secs">--</div><div class="cd-label">Seconds</div></div>
+    </div>
+  </section>
+
+  <!-- ══ RANGOLI STRIP ══ -->
+  <div class="rangoli-strip" aria-hidden="true">
+    🔶 🌼 🔷 🌼 🔶 🌼 🔷 🌼 🔶 🌼 🔷 🌼 🔶 🌼 🔷 🌼 🔶 🌼 🔷 🌼 🔶 🌼
+  </div>
+
+  <!-- ══ LOCATION ══ -->
+  <section class="location-section" aria-label="Location">
+    <h2>📍 Find Us Here</h2>
+    <p>Tap the button below to open directions in Google Maps</p>
+    <a class="map-btn"
+       href="https://share.google/8nMZSM9a0PaP1nCPh"
+       target="_blank"
+       rel="noopener noreferrer">
+      <span>🗺</span> Get Directions
+    </a>
+  </section>
+
+  <!-- ══ RANGOLI STRIP ══ -->
+  <div class="rangoli-strip" aria-hidden="true">
+    🌸 🪔 ✨ 🌸 🪔 ✨ 🌸 🪔 ✨ 🌸 🪔 ✨ 🌸 🪔 ✨ 🌸 🪔 ✨ 🌸 🪔 ✨ 🌸 🪔 ✨
+  </div>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="namaste-footer">🙏</div>
+    <p class="blessings">"May this home be filled with love, laughter, and light."</p>
+    <p>We look forward to celebrating with you.<br>
+       Please join us on <strong>27 April 2026</strong> from
+       <strong>11:00 AM – 2:30 PM</strong>.</p>
+  </footer>
+
+  <!-- Bottom border -->
+  <div class="border-strip"></div>
+
+  <!-- ══ COUNTDOWN SCRIPT ══ -->
+  <script>
+    (function () {
+      // Target: 27 April 2026, 11:00 AM (local time)
+      var target = new Date('2026-04-27T11:00:00');
+
+      function pad(n) { return String(n).padStart(2, '0'); }
+
+      function tick() {
+        var now  = new Date();
+        var diff = target - now;
+
+        if (diff <= 0) {
+          document.getElementById('countdown').innerHTML =
+            '<p class="cd-done">🎉 The celebration has begun! 🎉</p>';
+          return;
+        }
+
+        var days  = Math.floor(diff / 86400000);
+        var hours = Math.floor((diff % 86400000) / 3600000);
+        var mins  = Math.floor((diff % 3600000)  / 60000);
+        var secs  = Math.floor((diff % 60000)    / 1000);
+
+        document.getElementById('cd-days').textContent  = pad(days);
+        document.getElementById('cd-hours').textContent = pad(hours);
+        document.getElementById('cd-mins').textContent  = pad(mins);
+        document.getElementById('cd-secs').textContent  = pad(secs);
+      }
+
+      tick();
+      setInterval(tick, 1000);
+    })();
+  </script>
+
+</body>
+</html>
