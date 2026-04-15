@@ -3,344 +3,293 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Griha Pravesh Invitation 🪔</title>
+  <title>Griha Pravesh Invitation</title>
   <style>
     /* ── Google Fonts ── */
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&family=Marck+Script&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600&display=swap');
 
     /* ── Reset & Base ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --gold:   #c9901d;
-      --gold2:  #f5c842;
-      --saffron:#e8520a;
-      --red:    #b5001e;
-      --cream:  #fdf6e3;
-      --dark:   #2e1a0e;
+      --bg:      #0a0a0a;
+      --surface: #141414;
+      --border:  #1f1f1f;
+      --text:    #f0f0f0;
+      --muted:   #5a5a5a;
+      --accent:  #c8a96e;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Lato', sans-serif;
-      background: var(--cream);
-      color: var(--dark);
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
       overflow-x: hidden;
     }
 
-    /* ── Decorative top / bottom border ── */
-    .border-strip {
+    /* ── Thin accent line ── */
+    .accent-line {
       width: 100%;
-      height: 12px;
-      background: repeating-linear-gradient(
-        90deg,
-        var(--saffron) 0px, var(--saffron) 20px,
-        var(--gold2)   20px, var(--gold2)   40px,
-        var(--red)     40px, var(--red)     60px
-      );
+      height: 1px;
+      background: var(--accent);
     }
 
-    /* ── Hero / Header ── */
+    /* ── Hero ── */
     .hero {
-      position: relative;
       text-align: center;
-      padding: 60px 20px 40px;
-      background:
-        radial-gradient(ellipse at top, #fff8ee 0%, #fde8ba 60%, #f5c842 100%);
-      overflow: hidden;
+      padding: 110px 20px 90px;
+      animation: fadeUp .8s ease both;
     }
 
-    /* Rangoli-style SVG circles in hero */
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 10% 20%, rgba(201,144,29,.15) 0 80px, transparent 80px),
-        radial-gradient(circle at 90% 15%, rgba(229,82,10,.12) 0 60px, transparent 60px),
-        radial-gradient(circle at 50% 95%, rgba(181,0,30,.10) 0 100px, transparent 100px);
-      pointer-events: none;
-    }
-
-    .diya-row {
-      font-size: 2.4rem;
-      letter-spacing: .5rem;
-      margin-bottom: 18px;
-      animation: flicker 2s ease-in-out infinite alternate;
-    }
-
-    @keyframes flicker {
-      0%   { opacity: 1; }
-      50%  { opacity: .85; }
-      100% { opacity: 1; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     .hero-label {
-      font-family: 'Lato', sans-serif;
-      font-size: .85rem;
-      font-weight: 700;
-      letter-spacing: .35em;
+      font-size: .68rem;
+      font-weight: 500;
+      letter-spacing: .45em;
       text-transform: uppercase;
-      color: var(--saffron);
-      margin-bottom: 10px;
+      color: var(--accent);
+      margin-bottom: 28px;
     }
 
     .hero-title {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(2.2rem, 6vw, 4rem);
-      font-weight: 700;
-      color: var(--red);
-      line-height: 1.15;
-      text-shadow: 1px 2px 6px rgba(0,0,0,.12);
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(3rem, 9vw, 5.5rem);
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.08;
+      margin-bottom: 20px;
     }
 
     .hero-subtitle {
-      font-family: 'Marck Script', cursive;
-      font-size: clamp(1.2rem, 3.5vw, 1.9rem);
-      color: var(--gold);
-      margin-top: 8px;
+      font-size: .75rem;
+      font-weight: 400;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 52px;
     }
 
     .hero-divider {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      margin: 22px auto;
-      max-width: 420px;
-    }
-    .hero-divider span { font-size: 1.5rem; }
-    .hero-divider .line {
-      flex: 1;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      width: 36px;
+      height: 1px;
+      background: var(--accent);
+      margin: 0 auto 52px;
     }
 
-    /* ── Invitation Text ── */
     .invitation-text {
-      max-width: 680px;
-      margin: 0 auto 30px;
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: #4a2c10;
-      padding: 0 16px;
+      max-width: 500px;
+      margin: 0 auto;
+      font-size: .92rem;
+      font-weight: 300;
+      line-height: 2;
+      color: #888;
     }
 
-    .invitation-text .namaste { font-size: 2rem; display: block; margin-bottom: 8px; }
+    .invitation-text strong {
+      color: var(--text);
+      font-weight: 500;
+    }
 
-    /* ── Info Cards ── */
+    /* ── Event Details Cards ── */
     .cards {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 1px;
       justify-content: center;
-      padding: 40px 20px;
-      background: linear-gradient(180deg, #fde8ba 0%, var(--cream) 100%);
+      padding: 80px 20px;
+      max-width: 860px;
+      margin: 0 auto;
     }
 
     .card {
-      background: #fff;
-      border: 2px solid var(--gold2);
-      border-radius: 16px;
-      padding: 28px 32px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 44px 40px;
       min-width: 220px;
+      flex: 1 1 220px;
       max-width: 280px;
-      flex: 1 1 200px;
       text-align: center;
-      box-shadow: 0 6px 24px rgba(197,144,29,.18);
-      transition: transform .25s ease, box-shadow .25s ease;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 32px rgba(197,144,29,.28);
+      transition: border-color .3s ease;
     }
 
-    .card-icon { font-size: 2.4rem; margin-bottom: 10px; }
+    .card:hover { border-color: var(--accent); }
 
     .card-title {
-      font-family: 'Cinzel', serif;
-      font-size: .8rem;
+      font-size: .62rem;
       font-weight: 600;
-      letter-spacing: .2em;
+      letter-spacing: .35em;
       text-transform: uppercase;
-      color: var(--saffron);
-      margin-bottom: 8px;
+      color: var(--accent);
+      margin-bottom: 16px;
     }
 
     .card-value {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--dark);
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.35rem;
+      font-weight: 400;
+      color: var(--text);
       line-height: 1.4;
     }
 
     .card-sub {
-      font-size: .85rem;
-      color: #7a5030;
-      margin-top: 4px;
+      font-size: .75rem;
+      font-weight: 300;
+      color: var(--muted);
+      margin-top: 8px;
     }
 
     /* ── Countdown ── */
     .countdown-section {
       text-align: center;
-      padding: 48px 20px;
-      background: linear-gradient(135deg, var(--red) 0%, #8c001a 100%);
-      color: #fff;
+      padding: 80px 20px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
     }
 
     .countdown-section h2 {
-      font-family: 'Cinzel', serif;
-      font-size: 1.3rem;
-      letter-spacing: .15em;
-      margin-bottom: 28px;
-      opacity: .9;
+      font-size: .65rem;
+      font-weight: 500;
+      letter-spacing: .45em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 52px;
     }
 
     .countdown {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 18px;
     }
 
     .cd-box {
-      background: rgba(255,255,255,.12);
-      border: 2px solid rgba(255,255,255,.3);
-      border-radius: 12px;
-      padding: 18px 22px;
-      min-width: 80px;
-      backdrop-filter: blur(4px);
+      padding: 16px 36px;
+      border-right: 1px solid var(--border);
+      min-width: 100px;
     }
 
+    .cd-box:last-child { border-right: none; }
+
     .cd-num {
-      font-family: 'Cinzel', serif;
-      font-size: 2.4rem;
-      font-weight: 700;
+      font-family: 'DM Serif Display', serif;
+      font-size: 3.2rem;
+      font-weight: 400;
+      color: var(--text);
       line-height: 1;
     }
 
     .cd-label {
-      font-size: .7rem;
-      letter-spacing: .15em;
+      font-size: .58rem;
+      letter-spacing: .3em;
       text-transform: uppercase;
-      opacity: .8;
-      margin-top: 6px;
+      color: var(--muted);
+      margin-top: 10px;
     }
 
     .cd-done {
-      font-family: 'Cinzel', serif;
-      font-size: 1.6rem;
-      letter-spacing: .1em;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.8rem;
+      color: var(--text);
     }
 
-    /* ── Map / Location CTA ── */
+    /* ── Location ── */
     .location-section {
       text-align: center;
-      padding: 50px 20px;
-      background: var(--cream);
+      padding: 80px 20px;
     }
 
     .location-section h2 {
-      font-family: 'Cinzel', serif;
-      font-size: 1.6rem;
-      color: var(--red);
-      margin-bottom: 12px;
+      font-size: .65rem;
+      font-weight: 500;
+      letter-spacing: .45em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
     }
 
     .location-section p {
-      color: #6a4020;
-      font-size: .95rem;
-      margin-bottom: 28px;
+      font-size: .82rem;
+      font-weight: 300;
+      color: var(--muted);
+      margin-bottom: 36px;
     }
 
     .map-btn {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: linear-gradient(135deg, var(--saffron), var(--gold));
-      color: #fff;
+      border: 1px solid var(--accent);
+      color: var(--accent);
       text-decoration: none;
-      font-family: 'Cinzel', serif;
-      font-size: 1rem;
-      font-weight: 600;
-      letter-spacing: .08em;
-      padding: 14px 32px;
-      border-radius: 50px;
-      box-shadow: 0 6px 20px rgba(232,82,10,.35);
-      transition: transform .2s ease, box-shadow .2s ease;
+      font-size: .7rem;
+      font-weight: 500;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      padding: 14px 40px;
+      border-radius: 2px;
+      transition: background .25s ease, color .25s ease;
     }
-    .map-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 28px rgba(232,82,10,.45);
-    }
-    .map-btn span { font-size: 1.4rem; }
 
-    /* ── Decorative rangoli strip ── */
-    .rangoli-strip {
-      text-align: center;
-      font-size: 1.8rem;
-      letter-spacing: .6rem;
-      padding: 18px 0;
-      background: linear-gradient(90deg, #fde8ba, #f5c842, #fde8ba);
-      overflow: hidden;
-      white-space: nowrap;
+    .map-btn:hover {
+      background: var(--accent);
+      color: var(--bg);
     }
 
     /* ── Footer ── */
     footer {
-      background: var(--dark);
-      color: #e8c97a;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
       text-align: center;
-      padding: 30px 20px;
+      padding: 56px 20px;
     }
-
-    footer .namaste-footer { font-size: 1.8rem; margin-bottom: 8px; }
 
     footer p {
-      font-size: .85rem;
-      opacity: .75;
-      line-height: 1.7;
+      font-size: .82rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 2;
     }
 
-    footer .blessings {
-      font-family: 'Marck Script', cursive;
-      font-size: 1.15rem;
-      opacity: 1;
-      color: var(--gold2);
-      margin-top: 8px;
+    footer strong {
+      color: var(--text);
+      font-weight: 500;
     }
 
-    /* ── Responsive tweaks ── */
+    footer .namaste {
+      display: block;
+      font-size: 1.6rem;
+      margin-bottom: 14px;
+      opacity: .6;
+    }
+
+    /* ── Responsive ── */
     @media (max-width: 480px) {
-      .cd-num { font-size: 1.8rem; }
-      .card { padding: 22px 18px; }
+      .cd-num { font-size: 2.2rem; }
+      .cd-box { padding: 14px 20px; min-width: 72px; }
+      .card   { padding: 32px 24px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Top border -->
-  <div class="border-strip"></div>
+  <div class="accent-line"></div>
 
   <!-- ══ HERO ══ -->
   <header class="hero">
-    <p class="diya-row">🪔 🌸 🪔 🌸 🪔</p>
     <p class="hero-label">You are cordially invited to our</p>
     <h1 class="hero-title">Griha Pravesh<br>Ceremony</h1>
     <p class="hero-subtitle">Housewarming &amp; Blessings</p>
-
-    <div class="hero-divider">
-      <div class="line"></div>
-      <span>🌺</span>
-      <div class="line"></div>
-    </div>
-
+    <div class="hero-divider"></div>
     <p class="invitation-text">
-      <span class="namaste">🙏</span>
-      We are delighted to invite you to
-      grace our new home with your presence and auspicious blessings as we
-      celebrate our <strong>Griha Pravesh</strong>. Please do join us to make this moment truly special!
+      We are delighted to invite you to grace our new home with your presence
+      and auspicious blessings as we celebrate our <strong>Griha Pravesh</strong>.
+      Please do join us to make this moment truly special.
     </p>
   </header>
 
@@ -348,26 +297,24 @@
   <section class="cards" aria-label="Event Details">
 
     <div class="card">
-      <div class="card-icon">📅</div>
       <p class="card-title">Date</p>
       <p class="card-value">27 April 2026</p>
       <p class="card-sub">Monday</p>
     </div>
 
     <div class="card">
-      <div class="card-icon">🕐</div>
       <p class="card-title">Timing</p>
       <p class="card-value">11:00 AM – 2:30 PM</p>
       <p class="card-sub">Lunch &amp; Puja included</p>
     </div>
 
     <div class="card">
-      <div class="card-icon">📍</div>
       <p class="card-title">Venue</p>
       <p class="card-value">Our New Home</p>
       <p class="card-sub">
-        <a href="https://www.google.com/maps/dir//Keya+Around+The+Life,+Whitefield+-+Hoskote+Rd,+near+SRI+SATHYA+SAI+BABA+ASHRAM,+Chaitanya+Ananya,+Seegehalli,+Krishnarajapuram,+Bengaluru,+Karnataka+560067/@12.926976,77.6863744,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bae0fc12a5a9627:0xd90331309891ede3!2m2!1d77.7635168!2d13.005609?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener"
-           style="color:var(--saffron);font-weight:700;text-decoration:none;">
+        <a href="https://www.google.com/maps/dir//Keya+Around+The+Life,+Whitefield+-+Hoskote+Rd,+near+SRI+SATHYA+SAI+BABA+ASHRAM,+Chaitanya+Ananya,+Seegehalli,+Krishnarajapuram,+Bengaluru,+Karnataka+560067/@12.926976,77.6863744,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bae0fc12a5a9627:0xd90331309891ede3!2m2!1d77.7635168!2d13.005609?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D"
+           target="_blank" rel="noopener"
+           style="color:var(--accent);font-weight:500;text-decoration:none;letter-spacing:.04em;">
           View on Maps ↗
         </a>
       </p>
@@ -377,7 +324,7 @@
 
   <!-- ══ COUNTDOWN ══ -->
   <section class="countdown-section" aria-label="Countdown Timer">
-    <h2>🕰 Counting Down to the Celebration</h2>
+    <h2>Counting Down to the Celebration</h2>
     <div class="countdown" id="countdown">
       <div class="cd-box"><div class="cd-num" id="cd-days">--</div><div class="cd-label">Days</div></div>
       <div class="cd-box"><div class="cd-num" id="cd-hours">--</div><div class="cd-label">Hours</div></div>
@@ -386,38 +333,27 @@
     </div>
   </section>
 
-  <!-- ══ RANGOLI STRIP ══ -->
-  <div class="rangoli-strip" aria-hidden="true">
-    🔶 🌼 🔷 🌼 🔶 🌼 🔷 🌼 🔶 🌼 🔷 🌼 🔶 🌼 🔷 🌼 🔶 🌼 🔷 🌼 🔶 🌼
-  </div>
-
   <!-- ══ LOCATION ══ -->
   <section class="location-section" aria-label="Location">
-    <h2>📍 Find Us Here</h2>
+    <h2>Find Us Here</h2>
     <p>Tap the button below to open directions in Google Maps</p>
     <a class="map-btn"
        href="https://www.google.com/maps/dir//Keya+Around+The+Life,+Whitefield+-+Hoskote+Rd,+near+SRI+SATHYA+SAI+BABA+ASHRAM,+Chaitanya+Ananya,+Seegehalli,+Krishnarajapuram,+Bengaluru,+Karnataka+560067/@12.926976,77.6863744,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bae0fc12a5a9627:0xd90331309891ede3!2m2!1d77.7635168!2d13.005609?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D"
        target="_blank"
        rel="noopener noreferrer">
-      <span>🗺</span> Get Directions
+      Get Directions ↗
     </a>
   </section>
 
-  <!-- ══ RANGOLI STRIP ══ -->
-  <div class="rangoli-strip" aria-hidden="true">
-    🌸 🪔 ✨ 🌸 🪔 ✨ 🌸 🪔 ✨ 🌸 🪔 ✨ 🌸 🪔 ✨ 🌸 🪔 ✨ 🌸 🪔 ✨ 🌸 🪔 ✨
-  </div>
-
   <!-- ══ FOOTER ══ -->
   <footer>
-    <div class="namaste-footer">🙏</div>
+    <span class="namaste">🙏</span>
     <p>We look forward to celebrating with you.<br>
        Please join us on <strong>27 April 2026</strong> from
        <strong>11:00 AM – 2:30 PM</strong>.</p>
   </footer>
 
-  <!-- Bottom border -->
-  <div class="border-strip"></div>
+  <div class="accent-line"></div>
 
   <!-- ══ COUNTDOWN SCRIPT ══ -->
   <script>
@@ -433,7 +369,7 @@
 
         if (diff <= 0) {
           document.getElementById('countdown').innerHTML =
-            '<p class="cd-done">🎉 The celebration has begun! 🎉</p>';
+            '<p class="cd-done">The celebration has begun</p>';
           return;
         }
 
